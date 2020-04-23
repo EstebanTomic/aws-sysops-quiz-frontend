@@ -1,0 +1,27 @@
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    justify-content: right;
+    margin: 15px 0;
+
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  
+.respuesta-incorrecta {
+  color: red;
+  align-items: center;
+  text-align: center;
+}
+
+.respuesta-correcta {
+  color: green;
+  text-align: center;
+}
+.respuesta-original {
+  color: black;
+  text-align: center;
+}

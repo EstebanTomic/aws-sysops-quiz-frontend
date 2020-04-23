@@ -1,0 +1,55 @@
+<div *ngIf="!loading">
+    <div class="random-pregunta">
+        <h3><p>{{ preguntas.topic }}</p></h3>
+        <h2><p># Pregunta: {{ preguntas.numeroPregunta }}</p></h2>
+        <br>
+        <p>{{ preguntas.pregunta }}</p>
+        <br>
+
+        <label id="example-radio-group-label" >Elige tu respuesta:</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" 
+        [(ngModel)]="respuesta">
+    
+        <mat-radio-button class="example-radio-button"  value="A">
+                {{preguntas.respuestaA}}
+            </mat-radio-button>
+
+            <mat-radio-button class="example-radio-button" value="B">
+                {{preguntas.respuestaB}}
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button"  value="C">
+            {{preguntas.respuestaC}}
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" value="D">
+            {{preguntas.respuestaD}}
+            </mat-radio-button>
+            <div *ngIf="preguntas.respuestaE">
+                <mat-radio-button class="example-radio-button" value="E">
+                {{preguntas.respuestaE}}
+                </mat-radio-button>
+            </div>
+        </mat-radio-group>
+
+        <button mat-raised-button color="primary" (click)="responder()" >Responder</button>
+        <div *ngIf="respondio">
+            <div *ngIf="muestra" class="respuesta-correcta">
+                <h3>Respuesta correcta</h3>
+            </div>
+            <div *ngIf="!muestra" class="respuesta-incorrecta">
+                <h3>Respuesta Incorrecta</h3>
+                <div class="respuesta-original">
+                    <h4>La respuesta correcta es: {{ preguntas.opcionCorrecta }}</h4>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div >
+            <button mat-raised-button color="primary" (click)="refrescar()">Otra Pregunta</button>
+            &nbsp;&nbsp;&nbsp;
+            <button mat-raised-button color="primary" routerLink="/" routerLinkActive="active">Volver</button>
+        </div>
+    </div>
+</div>
+<app-loading-bar *ngIf="loading"></app-loading-bar>
